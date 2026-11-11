@@ -41,9 +41,9 @@ During emergency situations, rapid and structured communication is critical. ERC
 
 ---
 
-## Repository Structure
+## Project Structure
 
-````text
+```text
 ├── Frontend-ERCP/
 │   └── emergency-response-platform/    # Angular Web Application
 │
@@ -56,6 +56,7 @@ During emergency situations, rapid and structured communication is critical. ERC
     ├── Location-Service/                # Geographic Coordinates & Mapping Service
     ├── Victim-Service/                  # Victim Profile & Assistance Needs
     └── Log-Service/                     # System Auditing & Communication Logs
+```
 
 
 ## System Architecture
@@ -122,7 +123,7 @@ Secondary microservices (Location, Victim, Log) synchronize related metrics asyn
 
 Administrators and responders view updated incident records on their respective role-guarded dashboards.
 
-## Technology Stack
+## Tech Stack
 
 | **Layer**             | **Technology**                        |
 | --------------------- | ------------------------------------- |
