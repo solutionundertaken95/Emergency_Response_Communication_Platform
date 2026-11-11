@@ -1,0 +1,26 @@
+.responder-details-container {
+  min-width: 400px;
+  max-width: 600px;
+}
+
+.details-content {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.view-mode .detail-row {
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.view-mode .detail-row strong {
+  min-width: 150px;
+  display: inline-block;
+}
+
+.edit-mode {
+  max-height: 400px;
+  overflow-y: auto;
+}

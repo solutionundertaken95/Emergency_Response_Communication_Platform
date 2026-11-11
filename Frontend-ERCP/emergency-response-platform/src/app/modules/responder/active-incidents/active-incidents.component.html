@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card-header">
+      <h5 class="card-title mb-0">Incident Assigned</h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="d-flex justify-content-between mb-2" >
+            <span class="fw-bold">Incident ID:</span>
+            <span>{{incident.incidentId}}</span>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <span class="fw-bold">Type:</span>
+            <span class="badge bg-primary">{{incident.type}}</span>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <span class="fw-bold">Location:</span>
+            <span>{{incident.incidentLocation?.address}}</span>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <span class="fw-bold">Reported:</span>
+            <span>{{incident.timestamp | date:'medium'}}</span>
+          </div>
+          <div class="d-flex justify-content-between mb-3">
+            <span class="fw-bold">Status:</span>
+            <span class="badge bg-warning">{{incident.status}}</span>
+          </div>
+        </div>
+      </div>
+      
+      <form [formGroup]="responderForm" (ngSubmit)="requestResponders()">
+        <div class="row">
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="type" class="form-label">Additional Responder</label>
+              <select class="form-select" id="type" [(ngModel)]="type" formControlName="responderType" required>
+                <option value="" disabled selected>Select an option</option>
+                <option *ngFor="let option of responderTypes" value="{{option}}"> {{ option }}</option>
+              </select>
+            </div>
+            <button 
+              type="submit" 
+              class="btn btn-primary w-100" 
+              [disabled]="responderForm.invalid">
+              Request Additional Responders
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

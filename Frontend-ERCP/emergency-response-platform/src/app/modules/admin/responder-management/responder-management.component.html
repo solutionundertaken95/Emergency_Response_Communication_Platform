@@ -1,0 +1,46 @@
+<div class="container my-10 px-4">
+  <!-- Header Row -->
+  <div class="d-flex justify-content-between align-items-center flex-wrap mb-6 gap-2">
+    <!-- <h2 class="fw-bold mb-0 text-primary">Responder Management</h2> -->
+    <button mat-raised-button color="primary" (click)="openCreateResponderForm()">
+      <mat-icon class="me-2">add</mat-icon>
+      Create Responder
+    </button>
+  </div>
+
+  <!-- Responder Type Cards Section -->
+  <section *ngIf="!selectedResponderType" class="fade-in">
+    <!-- <h4 class="mb-4">Select a Responder Type</h4> -->
+    <app-responder-type-cards
+      (selectType)="onSelectResponderType($event)"
+      class="mb-6">
+    </app-responder-type-cards>
+  </section>
+
+  <!-- Responder Table Section -->
+  <section *ngIf="selectedResponderType" class="fade-in">
+    <div class="d-flex align-items-center mb-4">
+      <!-- <h4 class="mb-0 ms-4 text-capitalize">{{ selectedResponderType }} Responders</h4> -->
+    </div>
+
+    <mat-card class="p-4 shadow-lg rounded-4 border">
+      <button mat-stroked-button color="accent" (click)="selectedResponderType = null">
+        <mat-icon class="me-2">arrow_back</mat-icon>
+        Back
+      </button>
+      <app-responder-table
+        [responderType]="selectedResponderType"
+        (selectResponder)="onSelectResponder($event)">
+        
+      </app-responder-table>
+    </mat-card>
+  </section>
+
+  <!-- Responder Details Modal Section -->
+  <section *ngIf="selectedResponderId" class="fade-in mt-6">
+    <app-responder-details
+      [responderId]="selectedResponderId"
+      (close)="closeDetails()">
+    </app-responder-details>
+  </section>
+</div>

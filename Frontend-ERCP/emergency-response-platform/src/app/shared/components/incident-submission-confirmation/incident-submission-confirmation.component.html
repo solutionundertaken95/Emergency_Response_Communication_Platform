@@ -1,0 +1,43 @@
+
+   <div class="card w-100 max-w-md mx-auto mt-4" style="border: 2px solid #e0e0e0; background-color: #fafafa;">
+    <div class="card-header d-flex justify-content-between align-items-center p-3">
+      <!-- Warning Icon on the left -->
+      <mat-icon class="text-danger">warning</mat-icon>
+      
+      <!-- Title in the center -->
+      <h5 class="card-title mx-3 mb-0 text-center flex-grow-1">Victim Information</h5>
+      
+      <!-- Close button at the top right -->
+      <mat-icon (click)="onClose()" class="text-dark" style="cursor: pointer;">close</mat-icon>
+    </div>
+    
+    <div class="card-body">
+      <!-- Data after symbol in the same line -->
+      <div class="d-flex align-items-center mb-3">
+        <mat-icon class="h-4 w-4 text-secondary">person</mat-icon>
+        <p class="mb-0 ms-2">{{ data.incident.victimName }}</p>
+      </div>
+      <div class="d-flex align-items-center mb-3">
+        <mat-icon class="h-4 w-4 text-secondary">phone</mat-icon>
+        <p class="mb-0 ms-2">{{ data.incident.victimContact }}</p>
+      </div>
+      <div class="d-flex align-items-center mb-3">
+        <mat-icon class="h-4 w-4 text-danger">error</mat-icon>
+        <p class="mb-0 ms-2">{{ data.incident.type }}</p>
+      </div>
+      <div class="d-flex align-items-center mb-3">
+        <mat-icon class="h-4 w-4 text-primary">location_on</mat-icon>
+        <p class="mb-0 ms-2">{{ data.incident.incidentLocation.address }}</p>
+      </div>
+      <div class="d-flex align-items-center mb-3">
+        <mat-icon class="h-4 w-4 text-primary">access_time</mat-icon>
+        <p class="mb-0 ms-2">{{ data.incident.timestamp }}</p>
+      </div>
+    </div>
+    
+    <div class="text-center mt-3">
+      <button class="btn btn-secondary w-100" (click)="viewProgress()">View Progress Report</button>
+      
+    </div>
+  </div>
+  

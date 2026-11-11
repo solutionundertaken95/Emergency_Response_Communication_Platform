@@ -1,0 +1,62 @@
+
+<mat-dialog-content>
+  <h2 mat-dialog-title>Report an Incident</h2>
+  <form [formGroup]="incidentForm" (submit)="onSubmit()">
+    <!-- Victim Name -->
+    <div class="form-group">
+      <label for="victimName">Victim Name</label>
+      <input class="form-control" id="victimName" formControlName="victimName" required />
+    </div>
+
+    <!-- Victim Contact -->
+    <div class="form-group">
+      <label for="victimContact">Contact Details</label>
+      <input class="form-control" id="victimContact" formControlName="victimContact" required />
+    </div>
+
+    <!-- Victim Address -->
+    <div class="form-group">
+      <label for="victimAddress">Victim Current Address
+        </label>
+
+      <input class="form-control" id="victimAddress" formControlName="victimAddress" readonly  />
+    </div>
+
+    <!-- Incident Type -->
+    <div class="form-group">
+      <label for="type">Incident Type</label>
+      
+      <select class="form-control" id="type" formControlName="type" required>
+        <option value="" disabled selected>Select an option</option>
+    
+        <option *ngFor="let option of type" [value]="option"> {{ option }}</option>
+      </select>
+    </div>
+    
+    <!-- Same Location Checkbox -->
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="useSameLocation" (change)="updateIncidentLocation()" />
+      <label class="form-check-label" for="useSameLocation">
+        Incident Location Same as Victim Address
+      </label>
+    </div>
+
+    <!-- Incident Location -->
+    <div class="form-group">
+      <label for="incidentLocation">Incident Location</label>
+      <input class="form-control" id="incidentLocation" formControlName="incidentLocation" readonly />
+      <!-- <div class="button-group mt-2">
+        <button class="btn btn-secondary" type="button" (click)="openMapModal()">Locate on Map</button>
+      </div> -->
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit" [disabled]="!incidentForm.valid">
+        Submit Report
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>
+
+

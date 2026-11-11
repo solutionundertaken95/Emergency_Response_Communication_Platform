@@ -1,0 +1,38 @@
+ <div class="container py-5">
+      
+      <!-- Table Wrapper for Responsiveness -->
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <!-- Table Header -->
+          <thead class="thead-light">
+            <tr>
+              <th>ID</th>
+              <th>Type</th>
+              <th>Location</th>
+              <th>Status</th>
+              <th>Timestamp</th>
+              <th>Action</th>
+              
+            </tr>
+          </thead>
+          
+          <!-- Table Body -->
+          <tbody>
+            <tr *ngFor="let incident of incidents">
+              <td>{{ incident.incidentId }}</td>
+              <td>{{ incident.type }}</td>
+              <td>{{ incident.incidentLocation.address }}</td>
+              <td>{{ incident.status }}</td>
+              <td>{{ incident.timestamp | date:'medium' }}</td>
+              
+              <td>
+                <button class="btn btn-primary" (click)="onViewLogs(incident.incidentId)">
+                  View Logs
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
